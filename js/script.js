@@ -38,7 +38,7 @@ const app = Vue.createApp({
         }
     },
 
-   
+    // on monuted perchè vanno geberati PRIMA di stamaprli, K!
     mounted() {
         for (let i = this.emails.length; i < 10; i++) {
             axios
@@ -47,10 +47,9 @@ const app = Vue.createApp({
                 // console.log(result.data.response);
 
                 this.emails.push(result.data.response);
-                    
+
                 })
         }
-        console.log(this.emails);
     }
     
 })

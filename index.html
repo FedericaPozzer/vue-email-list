@@ -28,8 +28,10 @@
 </head>
 <body>
     <div id="my-app">
+        <h1>List of 10 random e-mail addresses:</h1>
         <ol>
-            <li v-for="email of emails">
+            <li v-for="email of emails"
+            v-show="emails.length >= 10">
             {{ email }}</li>
         </ol>
     </div>
