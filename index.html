@@ -27,9 +27,13 @@
         <script type="text/javascript" src="./js/script.js" defer></script>
 </head>
 <body>
-    <div id="app">
+    <div id="my-app">
         <ol>
-            <li></li>
+            <li 
+            v-for="(email, index) of emails"
+            v-bind="generateEmailAddress()">
+            {{ email }}
+            </li>
         </ol>
     </div>
 

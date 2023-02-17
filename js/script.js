@@ -1,14 +1,14 @@
-// ! DESCRIZIONE: 
+// * DESCRIZIONE: 
     // Attraverso l'apposita API di Boolean
     // https://flynn.boolean.careers/exercises/api/random/mail
     // generare 10 indirizzi email e stamparli in pagina all'interno di una lista.
-// ! BONUS: 
+// * BONUS: 
     // far comparire gli indirizzi email solamente quando sono stati tutti generati.
 
 
 
 
-// * un, due, tre, prova.. genero un indirizzo e-mail random -- OK!
+// * un, due, tre, prova.. genero un indirizzo e-mail random
 // axios
 //     .get("https://flynn.boolean.careers/exercises/api/random/mail")
 //     .then(function (result) {
@@ -18,29 +18,41 @@
 
 
 
-// * ok, genero 10 indirizzi e-mail -- Ok!
-email_list = [];
-for (let i = 0; i < 10; i++) {
-    axios
-        .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then((result) => {
-            email_list.push(result.data.response);
-        })
-}
-console.log(email_list);
+// * ok, genero 10 indirizzi e-mail
+// email_list = [];
+// for (let i = 0; i < 10; i++) {
+//     axios
+//         .get("https://flynn.boolean.careers/exercises/api/random/mail")
+//         .then((result) => {
+//             email_list.push(result.data.response);
+//         })
+// }
+// console.log(email_list);
 
 
 // * bueno, stampali in pagina
-// const app = Vue.createApp({
-//     // data() {
-//     //     return {
-//     //     }
-//     // },
-//     methods: {
+const app = Vue.createApp({
+    data() {
+        return {
+            emails : [],
+        }
+    },
+    methods: {
+        generateEmailAddress() {
+            for (let i = this.emails.length; i < 3; i++) {
+                axios
+                    .get("https://flynn.boolean.careers/exercises/api/random/mail")
+                    .then((result) => {
+                    // console.log(result.data.response);
 
-//     }
-// })
-// app.mount("#my-app");
+                    this.emails = result.data.response;
+                    })
+            }
+            console.log(this.emails);
+        }
+    }
+})
+app.mount("#my-app");
 
 
 
