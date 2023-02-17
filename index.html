@@ -29,11 +29,8 @@
 <body>
     <div id="my-app">
         <ol>
-            <li 
-            v-for="(email, index) of emails"
-            v-bind="generateEmailAddress()">
-            {{ email }}
-            </li>
+            <li
+            v-bind="generateEmailAddress()"></li>
         </ol>
     </div>
 

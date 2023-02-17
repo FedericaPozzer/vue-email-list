@@ -34,21 +34,22 @@
 const app = Vue.createApp({
     data() {
         return {
-            emails : [],
+            email : [],
         }
     },
     methods: {
         generateEmailAddress() {
-            for (let i = this.emails.length; i < 3; i++) {
+            for (let i = this.email.length; i < 3; i++) {
                 axios
                     .get("https://flynn.boolean.careers/exercises/api/random/mail")
                     .then((result) => {
                     // console.log(result.data.response);
 
-                    this.emails = result.data.response;
+                    this.email = result.data.response;
+                    
                     })
             }
-            console.log(this.emails);
+            console.log(this.email);
         }
     }
 })
